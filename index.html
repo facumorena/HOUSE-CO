@@ -1,0 +1,383 @@
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+.preview{font-family:'Outfit',system-ui,sans-serif;background:#F8F5F0;color:#38342E;border:1px solid #E2D9CC;border-radius:8px;overflow:hidden;}
+.pnav{background:#F8F5F0;border-bottom:1px solid rgba(26,24,20,0.09);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:8px;}
+.logo-sq{width:26px;height:26px;position:relative;}
+.logo-word{font-weight:700;font-size:13px;letter-spacing:3px;color:#1A1814;}
+.logo-amp{font-family:Georgia,serif;color:#B8914A;font-size:15px;}
+.logo-co{font-weight:300;font-size:12px;color:#1A1814;}
+.nav-links{display:flex;gap:16px;align-items:center;}
+.nl{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#7A7268;}
+.nav-cta{background:#1A1814;color:#F8F5F0;padding:5px 12px;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+.lang{display:flex;border:1px solid #E2D9CC;overflow:hidden;}
+.lb{padding:3px 7px;font-size:8px;font-weight:600;letter-spacing:1px;background:none;border:none;color:#7A7268;cursor:pointer;}
+.lb.on{background:#1A1814;color:#F8F5F0;}
+
+.hero{padding:32px 20px 24px;background:#F8F5F0;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(184,145,74,0.10);border:1px solid rgba(184,145,74,0.22);padding:4px 12px;margin-bottom:16px;}
+.hbd{width:5px;height:5px;background:#B8914A;border-radius:50%;}
+.hbt{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9C7A38;}
+.hero h1{font-family:Georgia,serif;font-size:32px;font-weight:300;line-height:1;color:#1A1814;letter-spacing:-1px;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:#B8914A;}
+.hero h1 strong{font-weight:700;}
+.hero-sub{font-size:12px;line-height:1.7;color:#7A7268;margin-bottom:10px;max-width:360px;}
+.hero-promo{display:inline-flex;align-items:center;gap:8px;background:#1A1814;padding:8px 14px;margin-bottom:20px;}
+.hp-tag{background:#B8914A;color:#fff;font-size:7px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 7px;}
+.hp-txt{font-size:11px;color:rgba(255,255,255,.8);}
+.hp-txt strong{color:#fff;}
+.hero-btns{display:flex;gap:8px;margin-bottom:20px;}
+.btn-d{background:#1A1814;color:#F8F5F0;padding:9px 20px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;}
+.btn-l{background:transparent;color:#1A1814;border:1.5px solid #E2D9CC;padding:8px 20px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;}
+.hero-nums{display:flex;gap:0;border-top:1px solid rgba(26,24,20,0.09);padding-top:16px;}
+.hn{padding-right:20px;border-right:1px solid rgba(26,24,20,0.09);margin-right:20px;}
+.hn:last-child{border-right:none;}
+.hnn{font-family:Georgia,serif;font-size:24px;font-weight:300;color:#1A1814;line-height:1;}
+.hnn sup{font-size:12px;color:#B8914A;}
+.hnl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#7A7268;margin-top:2px;}
+
+.ticker{background:#1A1814;padding:7px 0;overflow:hidden;}
+.ticker-scroll{display:flex;white-space:nowrap;animation:tick 20s linear infinite;}
+.ti{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,245,240,0.35);}
+.ti .dot{color:#B8914A;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.catalog{padding:28px 20px;}
+.cat-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;}
+.cat-head h2{font-family:Georgia,serif;font-size:22px;font-weight:300;color:#1A1814;}
+.cat-head h2 em{font-style:italic;color:#B8914A;}
+.filters{display:flex;gap:2px;background:#fff;padding:3px;border:1px solid rgba(26,24,20,0.09);}
+.fb{padding:5px 12px;font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:none;border:none;color:#7A7268;cursor:pointer;}
+.fb.on{background:#1A1814;color:#F8F5F0;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.pc{background:#fff;border:1px solid rgba(26,24,20,0.09);position:relative;}
+.pc-img{height:120px;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;}
+.img-c5{background:#3C2010;}
+.img-c7{background:#0D1520;}
+.img-c7p{background:#151520;}
+.img-d5{background:#181818;}
+.img-d7{background:#0A0A12;}
+.img-d8{background:#101418;}
+.img-e20{background:#1A2010;}
+.img-e40{background:#181C10;}
+.pc-img-label{position:absolute;bottom:8px;left:10px;font-family:Georgia,serif;font-size:20px;font-weight:300;color:rgba(255,255,255,0.8);line-height:1;}
+.badge{position:absolute;top:8px;right:8px;font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;}
+.bg-gold{background:#B8914A;color:#fff;}
+.bg-ink{background:#1A1814;color:#F8F5F0;}
+.pc-zoom{position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:9px;color:#fff;letter-spacing:2px;text-transform:uppercase;}
+.pc:hover .pc-zoom{opacity:1;}
+.pc-body{padding:12px 12px 0;}
+.pc-series{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#B8914A;margin-bottom:2px;}
+.pc-name{font-size:12px;font-weight:600;color:#1A1814;margin-bottom:4px;}
+.pc-desc{font-size:10px;line-height:1.5;color:#7A7268;margin-bottom:8px;}
+.pc-specs{display:flex;gap:10px;margin-bottom:4px;}
+.sv{font-size:10px;font-weight:600;color:#1A1814;}
+.sk{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#B0A898;}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-top:1px solid rgba(26,24,20,0.05);margin-top:8px;}
+.pc-price{font-family:Georgia,serif;font-size:16px;font-weight:600;color:#1A1814;}
+.pc-price sub{font-family:system-ui;font-size:9px;font-weight:300;color:#7A7268;}
+.pc-btn{background:#1A1814;color:#F8F5F0;border:none;padding:6px 10px;font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;}
+
+.promo{background:#1A1814;padding:24px 20px;display:flex;justify-content:space-between;align-items:center;}
+.promo-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;}
+.pt-pill{background:#B8914A;color:#fff;font-size:7px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;}
+.pt-txt{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,245,240,0.3);}
+.promo h2{font-family:Georgia,serif;font-size:20px;font-weight:300;color:#fff;line-height:1.05;margin-bottom:10px;}
+.promo h2 em{font-style:italic;color:#B8914A;}
+.promo p{font-size:10px;line-height:1.7;color:rgba(248,245,240,0.4);max-width:280px;margin-bottom:14px;}
+.btn-gold{background:#B8914A;color:#fff;padding:9px 20px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;}
+.promo-big{font-family:Georgia,serif;font-size:72px;font-weight:300;color:#B8914A;line-height:1;}
+.promo-big-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,245,240,0.2);margin-top:4px;}
+
+.roi-section{padding:28px 20px;background:#fff;}
+.roi-section h2{font-family:Georgia,serif;font-size:22px;font-weight:300;color:#1A1814;margin-bottom:6px;}
+.roi-section h2 em{font-style:italic;color:#B8914A;}
+.roi-section p{font-size:11px;line-height:1.7;color:#7A7268;margin-bottom:20px;}
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.rc-field{margin-bottom:14px;}
+.rc-label{display:flex;justify-content:space-between;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#7A7268;margin-bottom:6px;}
+.rc-label span{color:#B8914A;font-weight:600;font-size:11px;text-transform:none;letter-spacing:0;}
+.rc-select{width:100%;background:#F8F5F0;border:1px solid rgba(26,24,20,0.09);padding:8px 10px;font-size:12px;color:#1A1814;appearance:none;}
+.rc-slider{width:100%;height:3px;accent-color:#B8914A;}
+.roi-results{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.rr{background:#F8F5F0;border:1px solid rgba(26,24,20,0.09);padding:14px 12px;}
+.rr.hl{background:#1A1814;}
+.rr-v{font-family:Georgia,serif;font-size:20px;font-weight:600;color:#1A1814;line-height:1;margin-bottom:4px;}
+.rr.hl .rr-v{color:#B8914A;}
+.rr-l{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#7A7268;}
+.rr.hl .rr-l{color:rgba(248,245,240,0.4);}
+
+.contact-section{padding:28px 20px;background:#F8F5F0;}
+.contact-section h2{font-family:Georgia,serif;font-size:22px;font-weight:300;color:#1A1814;margin-bottom:6px;}
+.contact-section h2 em{font-style:italic;color:#B8914A;}
+.contact-section .sub{font-size:11px;line-height:1.7;color:#7A7268;margin-bottom:16px;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.c-items{border:1px solid rgba(26,24,20,0.09);}
+.c-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(26,24,20,0.05);background:#fff;}
+.c-item:last-child{border-bottom:none;}
+.c-ico{width:28px;height:28px;background:rgba(184,145,74,0.10);border:1px solid rgba(184,145,74,0.18);display:flex;align-items:center;justify-content:center;font-size:12px;}
+.c-lbl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#7A7268;}
+.c-val{font-size:11px;font-weight:500;color:#1A1814;}
+.form-mini{display:flex;flex-direction:column;gap:6px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.finput{background:#fff;border:1px solid rgba(26,24,20,0.09);padding:8px 10px;font-size:11px;color:#1A1814;width:100%;}
+.ftarea{background:#fff;border:1px solid rgba(26,24,20,0.09);padding:8px 10px;font-size:11px;color:#1A1814;width:100%;height:60px;resize:none;}
+.fsel{background:#fff;border:1px solid rgba(26,24,20,0.09);padding:8px 10px;font-size:11px;color:#1A1814;width:100%;appearance:none;}
+.fbtn{background:#1A1814;color:#F8F5F0;border:none;padding:10px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;width:100%;cursor:pointer;}
+
+.pfooter{background:#111009;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+.pfooter .fc{font-size:9px;color:rgba(248,245,240,0.25);}
+.certs{display:flex;gap:4px;}
+.cert{border:1px solid rgba(248,245,240,0.10);padding:3px 7px;font-size:7px;letter-spacing:1px;color:rgba(248,245,240,0.2);}
+</style>
+
+<h2 class="sr-only">Preview de la webapp HAUS & co. — landing page de modular homes Uruguay</h2>
+<div class="preview">
+
+  <!-- NAV -->
+  <div class="pnav">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 60 60" fill="none">
+        <polyline points="10,50 10,28 30,12" stroke="#1A1814" stroke-width="4" stroke-linejoin="round" fill="none"/>
+        <polyline points="10,50 54,50 54,28" stroke="#1A1814" stroke-width="4" stroke-linejoin="round" fill="none"/>
+        <polyline points="30,12 54,28" stroke="#B8914A" stroke-width="4" fill="none"/>
+      </svg>
+      <span class="logo-word">HAUS</span><span class="logo-amp">&amp;</span><span class="logo-co">co.</span>
+    </div>
+    <div class="nav-links">
+      <span class="nl">Catálogo</span>
+      <span class="nl">Inversión</span>
+      <span class="nav-cta">Consultá ahora</span>
+      <div class="lang"><button class="lb on">ES</button><button class="lb">EN</button></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><div class="hbd"></div><span class="hbt">Uruguay · Modular Homes</span></div>
+    <h1>Tu terreno,<br><em>tu negocio</em><br><strong>desde el día uno.</strong></h1>
+    <p class="hero-sub">Módulos habitacionales de diseño para glamping y alquiler vacacional. En 40 días tu módulo está listo para recibir huéspedes.</p>
+    <div class="hero-promo">
+      <span class="hp-tag">Promo activa</span>
+      <span class="hp-txt">Bonificamos el <strong>50%</strong> del costo de instalación</span>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-d">Ver modelos y precios</button>
+      <button class="btn-l">¿Cuánto puedo ganar?</button>
+    </div>
+    <div class="hero-nums">
+      <div class="hn"><div class="hnn">40</div><div class="hnl">Días hasta listo</div></div>
+      <div class="hn"><div class="hnn">8<sup>+</sup></div><div class="hnl">Modelos disponibles</div></div>
+      <div class="hn"><div class="hnn">50<sup>%</sup></div><div class="hnl">Instalación bonificada</div></div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-scroll">
+      <span class="ti"><span class="dot">◆</span>Glamping · Turismo Rural</span>
+      <span class="ti"><span class="dot">◆</span>Desde USD 22.000</span>
+      <span class="ti"><span class="dot">◆</span>50% Instalación Bonificada — Promo Activa</span>
+      <span class="ti"><span class="dot">◆</span>Domes · Cápsulas · Expandibles</span>
+      <span class="ti"><span class="dot">◆</span>Renta desde el primer mes</span>
+      <span class="ti"><span class="dot">◆</span>40 días y está listo</span>
+      <span class="ti"><span class="dot">◆</span>Glamping · Turismo Rural</span>
+      <span class="ti"><span class="dot">◆</span>Desde USD 22.000</span>
+      <span class="ti"><span class="dot">◆</span>50% Instalación Bonificada — Promo Activa</span>
+      <span class="ti"><span class="dot">◆</span>Domes · Cápsulas · Expandibles</span>
+      <span class="ti"><span class="dot">◆</span>Renta desde el primer mes</span>
+      <span class="ti"><span class="dot">◆</span>40 días y está listo</span>
+    </div>
+  </div>
+
+  <!-- CATÁLOGO -->
+  <div class="catalog">
+    <div class="cat-head">
+      <h2>Elegí tu <em>modelo</em></h2>
+      <div class="filters">
+        <button class="fb on">Todos</button>
+        <button class="fb">Domes</button>
+        <button class="fb">Cápsulas</button>
+        <button class="fb">Expandibles</button>
+      </div>
+    </div>
+    <div class="pgrid">
+      <!-- C5 -->
+      <div class="pc">
+        <div class="pc-img img-c5">
+          <div class="pc-zoom">↑ Ver más</div>
+          <span class="pc-img-label">C5</span>
+          <span class="badge bg-gold">⭐ Más pedido</span>
+        </div>
+        <div class="pc-body">
+          <div class="pc-series">Serie Dome · C5</div>
+          <div class="pc-name">Dome Star C5</div>
+          <div class="pc-desc">Cúpula doble nivel con ventanas 360°. Dormir bajo las estrellas.</div>
+          <div class="pc-specs">
+            <div><div class="sv">13.6 m²</div><div class="sk">Área</div></div>
+            <div><div class="sv">φ 4.16m</div><div class="sk">Diám.</div></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="pc-price">USD 53.000<sub> *</sub></div>
+          <button class="pc-btn">Consultar →</button>
+        </div>
+      </div>
+      <!-- D5 -->
+      <div class="pc">
+        <div class="pc-img img-d5">
+          <div class="pc-zoom">↑ Ver más</div>
+          <span class="pc-img-label">D5</span>
+          <span class="badge bg-ink">1 dormitorio</span>
+        </div>
+        <div class="pc-body">
+          <div class="pc-series">Serie Cápsula · D5</div>
+          <div class="pc-name">Cápsula D5</div>
+          <div class="pc-desc">Ventanas 270° floor-to-ceiling, balcón generoso. Diseño nave espacial.</div>
+          <div class="pc-specs">
+            <div><div class="sv">28 m²</div><div class="sk">Área</div></div>
+            <div><div class="sv">8.5m</div><div class="sk">Largo</div></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="pc-price">USD 59.000<sub> *</sub></div>
+          <button class="pc-btn">Consultar →</button>
+        </div>
+      </div>
+      <!-- E20 -->
+      <div class="pc">
+        <div class="pc-img img-e20">
+          <div class="pc-zoom">↑ Ver más</div>
+          <span class="pc-img-label">E20</span>
+          <span class="badge bg-gold">Desde USD 22k</span>
+        </div>
+        <div class="pc-body">
+          <div class="pc-series">Serie Expandible · E20</div>
+          <div class="pc-name">Expandible E20</div>
+          <div class="pc-desc">37 m² desde un container de 20 ft. Menor inversión inicial.</div>
+          <div class="pc-specs">
+            <div><div class="sv">37 m²</div><div class="sk">Área</div></div>
+            <div><div class="sv">20 ft</div><div class="sk">Container</div></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="pc-price">USD 22.000<sub> *</sub></div>
+          <button class="pc-btn">Consultar →</button>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:10px;font-size:9px;color:#7A7268;font-style:italic;">* Precios FOB Qingdao, no incluyen muebles, flete ni instalación. Instalación bonificada 50% con promo activa.</p>
+  </div>
+
+  <!-- PROMO -->
+  <div class="promo">
+    <div>
+      <div class="promo-tag"><span class="pt-pill">Promo Activa</span><span class="pt-txt">Tiempo limitado</span></div>
+      <h2>Instalación <em>bonificada</em><br>al 50%</h2>
+      <p>En la compra de cualquier módulo, bonificamos el 50% del costo de instalación en Uruguay.</p>
+      <button class="btn-gold">Aprovechar la promo</button>
+    </div>
+    <div style="text-align:center;">
+      <div class="promo-big">50%</div>
+      <div class="promo-big-lbl">Instalación bonificada</div>
+    </div>
+  </div>
+
+  <!-- ROI -->
+  <div class="roi-section">
+    <h2>Calculá tu <em>retorno</em></h2>
+    <p>Ingresá tus datos y mirá cuánto puede rendir tu inversión en glamping.</p>
+    <div class="roi-grid">
+      <div>
+        <div class="rc-field">
+          <div class="rc-label"><span>Modelo</span></div>
+          <select class="rc-select" id="rc-m" onchange="calc()">
+            <option value="53000,90">Dome Star C5 — USD 53.000</option>
+            <option value="69000,130">Dome Luxe C7 — USD 69.000</option>
+            <option value="79000,150">Dome C7 Plus — USD 79.000</option>
+            <option value="59000,110">Cápsula D5 — USD 59.000</option>
+            <option value="64000,125">Cápsula D7 — USD 64.000</option>
+            <option value="55000,105">Cápsula D8 — USD 55.000</option>
+            <option value="22000,75">Expandible E20 — USD 22.000</option>
+            <option value="38000,100">Expandible E40 — USD 38.000</option>
+          </select>
+        </div>
+        <div class="rc-field">
+          <div class="rc-label">Precio por noche <span id="rv">USD 90</span></div>
+          <input type="range" class="rc-slider" id="rc-rate" min="40" max="300" value="90" step="1" oninput="calc()">
+        </div>
+        <div class="rc-field">
+          <div class="rc-label">Ocupación estimada <span id="ov">60%</span></div>
+          <input type="range" class="rc-slider" id="rc-occ" min="20" max="90" value="60" step="1" oninput="calc()">
+        </div>
+        <div class="rc-field">
+          <div class="rc-label">Meses por año <span id="mv">10</span></div>
+          <input type="range" class="rc-slider" id="rc-mo" min="3" max="12" value="10" step="1" oninput="calc()">
+        </div>
+      </div>
+      <div class="roi-results">
+        <div class="rr"><div class="rr-v" id="rr1">USD 1.620</div><div class="rr-l">Ingreso mensual bruto</div></div>
+        <div class="rr hl"><div class="rr-v" id="rr2">USD 11.750</div><div class="rr-l">Ingreso anual neto est.</div></div>
+        <div class="rr"><div class="rr-v" id="rr3">4.5 años</div><div class="rr-l">Período de retorno</div></div>
+        <div class="rr"><div class="rr-v" id="rr4">22%</div><div class="rr-l">ROI anual estimado</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <div class="contact-section">
+    <h2>Hablemos de <em>tu proyecto</em></h2>
+    <p class="sub">Respondemos en menos de 24 horas. Contanos tu terreno y armamos una propuesta.</p>
+    <div class="cg">
+      <div class="c-items">
+        <div class="c-item"><div class="c-ico">📱</div><div><div class="c-lbl">WhatsApp</div><div class="c-val">+598 99 XXX XXX</div></div></div>
+        <div class="c-item"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">hola@hausco.uy</div></div></div>
+        <div class="c-item"><div class="c-ico">📍</div><div><div class="c-lbl">Ubicación</div><div class="c-val">Montevideo, Uruguay</div></div></div>
+        <div class="c-item"><div class="c-ico">🕐</div><div><div class="c-lbl">Horario</div><div class="c-val">Lun–Vie 9:00–18:00</div></div></div>
+      </div>
+      <div class="form-mini">
+        <div class="form-row">
+          <input class="finput" placeholder="Nombre">
+          <input class="finput" placeholder="Email">
+        </div>
+        <div class="form-row">
+          <input class="finput" placeholder="Teléfono">
+          <select class="fsel"><option>Seleccioná un modelo</option><option>Dome Star C5</option><option>Cápsula D7</option><option>Expandible E20</option></select>
+        </div>
+        <textarea class="ftarea" placeholder="Contanos sobre tu terreno y tu idea..."></textarea>
+        <button class="fbtn">Enviar consulta →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="pfooter">
+    <div style="color:rgba(248,245,240,0.4);font-size:11px;font-weight:700;letter-spacing:3px;">HAUS <span style="color:#B8914A;font-family:Georgia,serif;">&amp;</span> co.</div>
+    <div class="certs"><div class="cert">ISO 9001</div><div class="cert">CE</div><div class="cert">FOB Qingdao</div></div>
+  </div>
+
+</div>
+
+<script>
+function fmt(n){return'USD '+Math.round(n).toLocaleString('es-UY').replace(/,/g,'.');}
+function calc(){
+  var parts=document.getElementById('rc-m').value.split(',');
+  var price=parseInt(parts[0]), defRate=parseInt(parts[1]);
+  var rate=parseInt(document.getElementById('rc-rate').value);
+  var occ=parseInt(document.getElementById('rc-occ').value);
+  var mo=parseInt(document.getElementById('rc-mo').value);
+  document.getElementById('rv').textContent='USD '+rate;
+  document.getElementById('ov').textContent=occ+'%';
+  document.getElementById('mv').textContent=mo;
+  var mg=rate*30*(occ/100);
+  var ag=rate*365*(occ/100)*(mo/12);
+  var an=ag*0.72;
+  var pb=price/an;
+  var roi=(an/price)*100;
+  document.getElementById('rr1').textContent=fmt(mg);
+  document.getElementById('rr2').textContent=fmt(an);
+  document.getElementById('rr3').textContent=pb.toFixed(1)+' años';
+  document.getElementById('rr4').textContent=roi.toFixed(1)+'%';
+}
+calc();
+</script>
