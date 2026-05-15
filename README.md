@@ -1,2 +1,2 @@
 # HAUSE-CO
-MODERN MODULAR HOUSING SOLUTIONS
+Contemporary modular living solutions.
